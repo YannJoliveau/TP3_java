@@ -10,8 +10,8 @@ package com.mycompany.planchejoliveautp3;
  * @author Yann
  */
 public class LigneFacturation {
-public int reference;
-public int nombreExemplaireAcheté;
-public float prixUnitaire;
-public float prixTotal; 
+private int reference;
+private int nombreExemplaireAcheté;
+private float prixUnitaire;
+private float prixTotal; 
 }

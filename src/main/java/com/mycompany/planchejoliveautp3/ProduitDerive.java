@@ -9,6 +9,8 @@ package com.mycompany.planchejoliveautp3;
  *
  * @author Yann
  */
-public class ProduitDerive {
-    
+public class ProduitDerive extends Produit{
+    public ProduitDerive (String designation,float prixVente, int stock ){
+        super(designation ,prixVente ,stock);
+    }
 }

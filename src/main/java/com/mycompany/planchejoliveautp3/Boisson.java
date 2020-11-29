@@ -9,7 +9,18 @@ package com.mycompany.planchejoliveautp3;
  *
  * @author Yann
  */
-public class Boisson {
-    public float contenance;
-    public String date; 
+public class Boisson extends Produit{
+    private float contenance;
+    private String date; 
+public Boisson (String designation,float prixVente, int stock ,float contenance,String date) {
+    super(designation ,prixVente ,stock );
+    this.contenance = contenance;
+    this.date = date;
+    
+    
+}
+
+
+
+
 }

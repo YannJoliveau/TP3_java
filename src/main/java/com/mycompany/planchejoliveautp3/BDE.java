@@ -10,10 +10,10 @@ package com.mycompany.planchejoliveautp3;
  * @author Yann
  */
 public class BDE {
-public String nom;
+private String nom;
 
-public Produit [] tabProduitBDE;
-public Facture [] tabFactureBDE;
+private Produit [] tabProduitBDE;
+private Facture [] tabFactureBDE;
 
 public Produits rechercher(){
     Scanner clavier= new Scanner (System.in);
