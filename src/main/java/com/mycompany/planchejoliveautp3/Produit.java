@@ -6,6 +6,7 @@
 package com.mycompany.planchejoliveautp3;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter ;
+import java.util.Scanner;
 /**
  *
  * @author Yann Jolivea Amélie Planche
@@ -62,11 +63,25 @@ public float calculPrix(){
             return (prix);
         }
     }
-   
+   public void ajouterStock (){
+    Scanner clavier=new Scanner(System.in);
+    System.out.println("Combien de produits voulez vous ajouter au stock");
+    int produitsSuppl= clavier.nextInt();
+    stock=stock+produitsSuppl;
+    System.out.println("Vous venez d'ajouter "+produitsSuppl+" produits au stock qui contient mainetenant"+stock+"produits");  
+    
+}
 
 
 
-
+public void retirerStock(){
+    Scanner clavier=new Scanner(System.in);
+    System.out.println("Combien de produits voulez vous retirer du stock");
+    int produitsSuppl= clavier.nextInt();
+    stock=stock-produitsSuppl;
+    System.out.println("Vous venez de retirer "+produitsSuppl+" produits du stock qui contient mainetenant"+stock+"produits");  
+    
+}
 
 
 }
