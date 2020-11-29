@@ -79,5 +79,32 @@ public void ajouterproduitBoisson (){
         int stock = clavier.nextInt();
         ProduitDerive nouveauProduitDerive = new ProduitDerive(designation,prixVente,stock);
 }
+  
+  
+  public void ajouterproduitDérivéTextile(){
+      Scanner clavier= new Scanner(System.in);
+      System.out.println("Quel type (désignation) de produit est-ce ?");
+        String designation = clavier.nextLine();
+        
+        System.out.println("Quel est le prix de vente du nouveau produit ?");
+        float prixVente = clavier.nextFloat();
+        
+        System.out.println("Quel est le stock du nouveau produit ?");
+        int stock = clavier.nextInt();
+        
+        System.out.println("Quelle est l'année de mise en stock du nouveau produit ?");
+        int anneeMiseStock =clavier.nextInt();
+        
+        System.out.println("Quel est la couleur du nouveau produit ?");
+        String couleur  = clavier.nextLine();
+        
+          System.out.println("Quel est la taille du nouveau produit ?");
+        int taille =clavier.nextInt();
+        
+   
+        
+        ProduitDeriveTextile nouveauProduitDeriveTextile = new ProduitDeriveTextile(designation,prixVente,stock,anneeMiseStock,couleur,taille);
+  }
     }
+
 
