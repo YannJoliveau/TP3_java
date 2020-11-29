@@ -5,6 +5,8 @@
  */
 package com.mycompany.planchejoliveautp3;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Yann
@@ -15,7 +17,7 @@ private String nom;
 private Produit [] tabProduitBDE;
 private Facture [] tabFactureBDE;
 
-public Produits rechercher(){
+public Produit rechercher(){
     Scanner clavier= new Scanner (System.in);
     System.out.println("Quelle référence ?");
     String reference= clavier.nextLine();
@@ -31,7 +33,7 @@ public Produits rechercher(){
 
 
 public void ajouterStock(){
-    Produits varProduit;
+    Produit varProduit;
     varProduit=rechercher();
     Scanner clavier= new Scanner (System.in);
     System.out.println("Quel est le nombre de nombre d'exemplaires du produit ?");
@@ -40,9 +42,9 @@ public void ajouterStock(){
 
     
 }
-ublic Produits ajouterproduitBoisson (){
+public Produit ajouterproduitBoisson (){
     Scanner clavier= new Scanner(System.in);
-    Boisson  boisson= new Boisson();
+    boisson = new Boisson();
     System.out.println("Ajoutez la désignation du nouveau produit");
     int i = (tabProduitBDE.length)+1;
     String varDesignation =clavier.nextLine();
@@ -58,14 +60,18 @@ ublic Produits ajouterproduitBoisson (){
     
     }
 
-  public Produit ajouterproduitDérivé (){
+  public void ajouterproduitDérivé (){
         Scanner clavier= new Scanner(System.in);
-        System.out.println("Ajoutez la désignation du nouveau produit");
-        String designation =clavier.nextLine;
-        System.out.println("Ajoutez le prix de vente du nouveau produit");
-        float Produits.prix =clavier.nextFloat;
-        System.out.println("Ajoutez le stock du nouveau produit");
-        int Produits.stock =clavier.nextInt;
+        
+        System.out.println("Quel type (désignation) de produit est-ce ?");
+        String designation = clavier.nextLine();
+        
+        System.out.println("Quel est le prix de vente du nouveau produit ?"); 
+        float prixVente = clavier.nextFloat();
+        
+        System.out.println("Quel est le stock du nouveau produit ?");
+        int stock = clavier.nextInt();
+        ProduitDerive nouveauProduitDerive = new ProduitDerive(designation,prixVente,stock);
 }
     }
 
