@@ -11,11 +11,11 @@ package com.mycompany.planchejoliveautp3;
  */
 public class Boisson extends Produit{
     private float contenance;
-    private String date; 
-public Boisson (String designation,float prixVente, int stock ,float contenance,String date) {
+    private String dateConso; 
+public Boisson (String designation,float prixVente, int stock ,float contenance,String dateConso) {
     super(designation ,prixVente ,stock );
     this.contenance = contenance;
-    this.date = date;
+    this.dateConso = dateConso;
     
     
 }

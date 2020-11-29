@@ -42,21 +42,27 @@ public void ajouterStock(){
 
     
 }
-public Produit ajouterproduitBoisson (){
+public void ajouterproduitBoisson (){
     Scanner clavier= new Scanner(System.in);
-    boisson = new Boisson();
-    System.out.println("Ajoutez la désignation du nouveau produit");
-    int i = (tabProduitBDE.length)+1;
-    String varDesignation =clavier.nextLine();
-    tabProduitBDE[i]=varDesignation;
-    System.out.println("Ajoutez le prix de vente du nouveau produit");
-    tabProduitBDE[1]=prix;
-    System.out.println("Ajoutez le stock du nouveau produit");
-    tabProduitBDE[2]=stock;
+    
+    System.out.println("Quel type (désignation) de produit est-ce ?");
+        String designation = clavier.nextLine();
+    
+    
+    System.out.println("Quel est le prix de vente du nouveau produit ?"); 
+    float prixVente = clavier.nextFloat();
+        
+    
+    System.out.println("Quel est le stock du nouveau produit ?");
+    int stock = clavier.nextInt();
+    
+    System.out.println("Ajoutez la contenance du nouveau produit");    
+    float contenance = clavier.nextFloat();    
+        
     System.out.println("Ajoutez la date limite du nouveau produit");
-    tabProduitBDE[3]= String date;
-    System.out.println("Ajoutez la contenance du nouveau produit");
-    int Boisson.contenance =clavier.nextInt;
+    String dateConso = clavier.nextLine();
+
+    Boisson nouvelleBoisson = new Boisson(designation,prixVente,stock,contenance,dateConso);
     
     }
 
@@ -66,7 +72,7 @@ public Produit ajouterproduitBoisson (){
         System.out.println("Quel type (désignation) de produit est-ce ?");
         String designation = clavier.nextLine();
         
-        System.out.println("Quel est le prix de vente du nouveau produit ?"); 
+        System.out.println("Quel est le prix de vente du nouveau produit ?");
         float prixVente = clavier.nextFloat();
         
         System.out.println("Quel est le stock du nouveau produit ?");
