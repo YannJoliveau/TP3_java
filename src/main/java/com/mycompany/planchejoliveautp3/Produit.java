@@ -44,7 +44,7 @@ String text = date1.format(form);
 //String dateStr = simpleDateFormat.format(new Date()); 
 //System.out.println(dateStr);
 
-public float calculPrix(){
+public void calculPrix(){// pas de retour nécessaire il suffit de modifier le this.prix
      LocalDate date1 = LocalDate.now();
     DateTimeFormatter form = DateTimeFormatter.ofPattern("yyyy mm dd"); 
     String date = date1.format(form);
@@ -58,15 +58,16 @@ public float calculPrix(){
     }else if (PremLettre.equals("D")){
         if (mois == 11){
            float prix = (float) (prixVente - (prixVente*0.1)) ;
-        return (prix) ;
+        this.prixVente=prix ;
         }
     }else if (PremLettre.equals("T")){
         if (mois == 06){
            float prix ;
             prix = (float) (prixVente - (prixVente*0.2));
-            return (prix);
+            this.prixVente=prix;
         }
     }
+}
    public void ajouterStock (){
     Scanner clavier=new Scanner(System.in);
     System.out.println("Combien de produits voulez vous ajouter au stock");
@@ -90,4 +91,3 @@ public void retirerStock(){
 
 }
 
-}
