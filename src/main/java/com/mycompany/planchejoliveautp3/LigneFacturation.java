@@ -14,4 +14,19 @@ private int reference;
 private int nombreExemplaireAcheté;
 private float prixUnitaire;
 private float prixTotal; 
+
+LigneFacturation(int reference,int nombreExemplaireAcheté,float prixUnitaire,float prixTotal){
+    this.reference=reference;
+    this.nombreExemplaireAcheté=nombreExemplaireAcheté;
+    this.prixUnitaire=prixUnitaire;
+    this.prixTotal=prixTotal;
+}
+
+
+
+public void calculMontant(){
+    float MontantLigneCalcul;
+    MontantLigneCalcul=nombreExemplaireAcheté*prixUnitaire;  
+}
+    
 }

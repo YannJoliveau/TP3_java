@@ -5,6 +5,8 @@
  */
 package com.mycompany.planchejoliveautp3;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Yann
@@ -15,5 +17,17 @@ private float montantTotal;
 
 public Produit [] tabProduitAchete; 
 
+public void ajouterLigne(){
+    Scanner clavier = new Scanner(System.in);
+    System.out.println("Quelle est la référence du produit ?");
+    int reference=clavier.nextInt();
+    Produit produit = BDE.rechercher();
+        System.out.println("Quelle est la quantité du produit ?");
+    int nombreExemplaireAcheté = clavier. nextInt();
 
+    LigneFacturation NewLigneFacturation = new LigneFacturation (reference,nombreExemplaireAcheté,prixUnitaire,prixTotal);   
+}
+public void calculMontant(){
+    
+}
 }
