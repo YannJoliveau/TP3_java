@@ -98,7 +98,7 @@ public void ajouterproduitBoisson (){
         System.out.println("Quel est la couleur du nouveau produit ?");
         String couleur  = clavier.nextLine();
         
-          System.out.println("Quel est la taille du nouveau produit ?");
+        System.out.println("Quel est la taille du nouveau produit ?");
         int taille =clavier.nextInt();
         
    
