@@ -12,10 +12,10 @@ import java.util.Scanner;
  * @author Yann Jolivea Amélie Planche
  */
 public class Produit {
-private String reference ;
-private String designation;
-private float prixVente;
-private int stock;
+public String reference ;
+public String designation;
+public float prixVente;
+public int stock;
 
 public Produit (String designation,float prixVente, int stock ){
     this.designation = designation;

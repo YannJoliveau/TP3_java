@@ -17,10 +17,14 @@ private String nom;
 private Produit [] tabProduitBDE;
 private Facture [] tabFactureBDE;
 
-public Produit rechercher(){
-    Scanner clavier= new Scanner (System.in);
-    System.out.println("Quelle référence ?");
-    String reference= clavier.nextLine();
+public BDE(){
+    this.nom=nom;
+    this.tabProduitBDE=tabProduitBDE;
+    this.tabFactureBDE=tabFactureBDE;
+    
+}
+
+public Produit rechercher(String reference){;
             for (int i=0; i<tabProduitBDE.length-1;i++){
                 if (tabProduitBDE[i].reference.equals(reference) ){
                 return tabProduitBDE[i];
@@ -33,9 +37,12 @@ public Produit rechercher(){
 
 
 public void ajouterStock(){
+    String reference;
+    Scanner clavier= new Scanner(System.in);
+    System.out.println("Quelle est la référence ? ");
+    reference= clavier.nextLine();
     Produit varProduit;
-    varProduit=rechercher();
-    Scanner clavier= new Scanner (System.in);
+    varProduit=rechercher(reference);
     System.out.println("Quel est le nombre de nombre d'exemplaires du produit ?");
     int stockEnPlus= clavier.nextInt();
     varProduit.stock=varProduit.stock+stockEnPlus;

@@ -9,13 +9,13 @@ package com.mycompany.planchejoliveautp3;
  *
  * @author Yann
  */
-public class LigneFacturation {
-private int reference;
+public class LigneFacturation extends Facture {
+private String reference;
 private int nombreExemplaireAcheté;
 private float prixUnitaire;
 private float prixTotal; 
 
-LigneFacturation(int reference,int nombreExemplaireAcheté,float prixUnitaire,float prixTotal){
+LigneFacturation(String reference,int nombreExemplaireAcheté,float prixUnitaire,float prixTotal){
     this.reference=reference;
     this.nombreExemplaireAcheté=nombreExemplaireAcheté;
     this.prixUnitaire=prixUnitaire;
@@ -24,9 +24,10 @@ LigneFacturation(int reference,int nombreExemplaireAcheté,float prixUnitaire,fl
 
 
 
-public void calculMontant(){
+public  calculMontant(){
     float MontantLigneCalcul;
-    MontantLigneCalcul=nombreExemplaireAcheté*prixUnitaire;  
+    MontantLigneCalcul=nombreExemplaireAcheté*prixUnitaire; 
+    return MontantLigneCalcul;
 }
     
 }
