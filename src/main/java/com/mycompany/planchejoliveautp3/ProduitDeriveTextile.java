@@ -10,15 +10,32 @@ package com.mycompany.planchejoliveautp3;
  * @author Yann
  */
 public class ProduitDeriveTextile extends Produit {
-private int taille ;
-private String couleur;
-private int anneeMiseStock;
+    private static int cptRef = 1;
+    private int taille ;
+    private String couleur;
+    private int anneeMiseStock;
 
-public ProduitDeriveTextile (String designation,float prixVente, int stock ,int anneeMiseStock, String couleur,int taille ){
+    public int getAnneeMiseStock(){
+        return(this.anneeMiseStock);
+    }
+public ProduitDeriveTextile (String designation,double prixVente, int stock ,int anneeMiseStock, String couleur,int taille ){
     super( designation ,prixVente ,stock );
 this.taille = taille;
         this.couleur = couleur;
         this.anneeMiseStock = anneeMiseStock;
-
+        this.cptRef = 0;
 }
+    protected void initReference(){
+        this.reference = "D"+cptRef;
+        cptRef++;
+    }
+
+    public String versFichier(){
+        return super.versFichier()+ ":" + taille + ":" + couleur + ":" + anneeMiseStock;
+    }
+    public void setReference(String ref){
+        this.reference = ref;
+    }
+
+
 }

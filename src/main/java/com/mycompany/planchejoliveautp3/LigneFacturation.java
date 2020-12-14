@@ -5,29 +5,36 @@
  */
 package com.mycompany.planchejoliveautp3;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+
 /**
  *
  * @author Yann
  */
-public class LigneFacturation extends Facture {
-private String reference;
-private int nombreExemplaireAcheté;
-private float prixUnitaire;
-private float prixTotal; 
+public class LigneFacturation {
 
-LigneFacturation(String reference,int nombreExemplaireAcheté,float prixUnitaire,float prixTotal){
-    this.reference=reference;
-    this.nombreExemplaireAcheté=nombreExemplaireAcheté;
-    this.prixUnitaire=prixUnitaire;
-    this.prixTotal=prixTotal;
-}
+    private String reference;
+    private int nombreExemplaireAcheté;
+    private double prixUnitaire;
+    private double prixTotal = this.nombreExemplaireAcheté * this.prixUnitaire;
 
+    public LigneFacturation(String reference, int nombreExemplaireAcheté) {
+        
+        //this.prixUnitaire = produit.getPrix();
+        this.prixTotal = this.prixUnitaire * this.nombreExemplaireAcheté;
+        this.reference = reference;
+        this.nombreExemplaireAcheté = nombreExemplaireAcheté;
+        
+        
+    }
 
+    public double calculMontant() {
+        return (prixTotal);
+    }
 
-public  calculMontant(){
-    float MontantLigneCalcul;
-    MontantLigneCalcul=nombreExemplaireAcheté*prixUnitaire; 
-    return MontantLigneCalcul;
-}
-    
+    public String versFichier(){
+        return nombreExemplaireAcheté+ ":" + reference + ":" + prixUnitaire + ":" + prixTotal;
+    }
 }
