@@ -16,20 +16,13 @@ import java.util.Scanner;
 public class Main {
     
     public static void main(String args[]) throws IOException {
-        BDE BDE = new BDE("BDE");
+        BDE BDE = new BDE("BDE");//Creation du BDE
         
         
-        
-        try{
+        //On appel la focntion por récuperer les infos des produits de la base de donnée
             BDE.depuisFichierProduits();
-        }catch(FileNotFoundException e){
-            BDE.versFichiersProduits();
-        }
-        try{
             BDE.depuisFichierFacture();
-        }catch(FileNotFoundException e){
-            BDE.depuisFichierFacture();
-        }
+            //tentative de faire une interface mais manque de temps a cause de la semaine controle
         boolean var = true;
         while(var){
             Scanner sc = new Scanner(System.in);
@@ -39,7 +32,7 @@ public class Main {
             
         }
         
-        
+        //enregistrement des infos de produtis et des factures
         BDE.versFichiersProduits();
         BDE.versFichiersFactures();
         

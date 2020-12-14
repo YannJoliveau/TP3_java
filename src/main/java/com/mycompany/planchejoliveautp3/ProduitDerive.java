@@ -18,14 +18,16 @@ public class ProduitDerive extends Produit{
         initReference();
     }
     
-    
+    //setter de reference 
     public void setReference(String ref){
         this.reference = ref;
     }
+    //Méthode permettant de crée la reference 
     protected void initReference(){
         this.reference = "D"+cptRef;
         cptRef++;
     }
+    //methode envoyant les info du produit vers un string
     public String versFichier(){
         return super.versFichier();
     }

@@ -25,11 +25,11 @@ public class Boisson extends Produit {
         this.dateConso = dateConso;
         this.initReference();
     }
-    
+    //setter de reference 
     public void setReference(String ref){
         this.reference = ref;
     }
-    
+    //Méthode permettant de crée la reference 
     protected void initReference() {
         this.reference = "B" + cptRef;
         cptRef++;
@@ -38,7 +38,7 @@ public class Boisson extends Produit {
     public LocalDate getDateConso(){
         return(this.dateConso);
     }
-
+    //methode envoyant les info du produit vers un string
     public String versFichier(){
         return super.versFichier() + ":" + dateConso + ":" + contenance;
     }

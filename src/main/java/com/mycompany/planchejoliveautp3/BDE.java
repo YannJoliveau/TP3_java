@@ -147,7 +147,7 @@ public class BDE {
         tabFactureBDE[nbFacture] = facture;
         nbFacture++;
     }
-    
+    //méthode permettant de recuperer les factures d'un client a partir de son email
     public void listerFacturesClient(String emailCompare) {
         for (int j = 0; j < nbFacture; j++) {
             int var = emailCompare.compareTo(tabFactureBDE[j].emailToGet());
@@ -156,18 +156,18 @@ public class BDE {
             }
         }
     }
-
+//Méthode d'engeristrement des produits dans un ficher
     public void versFichiersProduits() throws IOException {
-        FileWriter fichier = new FileWriter("FichierProduits.txt");
+        FileWriter fichier = new FileWriter("FichierProduits.txt");//On dit au code quel fichier utiliser
         for (int i = 0; i < cptProduit; i++) {
             Produit p = tabProduitBDE[i];
-            String informations = p.versFichier();
-            fichier.write(informations + System.lineSeparator());
+            String informations = p.versFichier();//on transforme le produit en string
+            fichier.write(informations + System.lineSeparator()); //on écrit les infos dans le doc
         }
         fichier.flush();
         fichier.close();
     }
-
+//meme chose que pour versFichierProduits
     public void versFichiersFactures() throws IOException {
         FileWriter sortie = new FileWriter("FicchierFactures.txt");
         int cpt = 1;
@@ -184,39 +184,39 @@ public class BDE {
 
         }
     }
-
+//méthode permettant de recuperer les infos dans le fichier
     public void depuisFichierProduits() throws IOException {
         
-        FileReader entree = new FileReader("FichierProduits.txt");
+        FileReader entree = new FileReader("FichierProduits.txt");//on lui dit quel fichier utiliser
         BufferedReader br = new BufferedReader(entree);
         
-        String ref = br.readLine();
+        String ref = br.readLine();//on lui dit de recuperer la reference
         
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy mm dd");
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy mm dd");//On crée le format de date
         int cpt = 0;
 
-        while (ref != null) {
-            String ligne = br.readLine();
+        while (ref != null) {//tant que l'on a pas fait tout les produit dans notre fichier
+            String ligne = br.readLine();//On récupère la ligne d'info
             String tabvar[] = ligne.split(":");// sépare la phrase du fichier dès qu'il y a : 
 
-            switch (ref.charAt(0)) {
+            switch (ref.charAt(0)) {//On teste les différentes types de produits
                 
                 case 'B':
                     
                     Boisson b = new Boisson(tabvar[0], Double.parseDouble(tabvar[1]), Integer.parseInt(tabvar[2]), Float.parseFloat(tabvar[3]) ,LocalDate.parse(tabvar[4], f));
-                    b.setReference(ref);
-                    tabProduitBDE[cpt] = b;
+                    b.setReference(ref);//Crée le produit Boisson avec infos récuprer dans le tableau tabvar.
+                    tabProduitBDE[cpt] = b;//On met le produit dans le talbeau de produit
                     break;
                 case 'D':
                     
                     ProduitDerive produitd = new ProduitDerive(tabvar[0], Double.parseDouble(tabvar[1]), Integer.parseInt(tabvar[2]));
-                    produitd.setReference(ref);
+                    produitd.setReference(ref);//meme explication que plus haut
                     tabProduitBDE[cpt] = produitd;
                     break;
                 case 'T':
                     
                     ProduitDeriveTextile produitT = new ProduitDeriveTextile(tabvar[0], Double.parseDouble(tabvar[1]), Integer.parseInt(tabvar[2]), Integer.parseInt(tabvar[3]), tabvar[4], Integer.parseInt(tabvar[5]));
-                    produitT.setReference(ref);
+                    produitT.setReference(ref);//meme explication que plus haut
                     tabProduitBDE[cpt] = produitT;
                     break;
             }
@@ -227,7 +227,7 @@ public class BDE {
         cptProduit = cpt;
     }
 
-    public void depuisFichierFacture() throws IOException {
+    public void depuisFichierFacture() throws IOException {//meme principe que la méthode d'avant
         this.nbFacture = 0;
         FileReader entree = new FileReader("FicchierFactures.txt");
         BufferedReader br = new BufferedReader(entree);

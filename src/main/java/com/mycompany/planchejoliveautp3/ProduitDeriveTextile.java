@@ -24,15 +24,16 @@ this.taille = taille;
         this.couleur = couleur;
         this.anneeMiseStock = anneeMiseStock;
         this.cptRef = 0;
-}
+}//Méthode permettant de crée la reference
     protected void initReference(){
         this.reference = "D"+cptRef;
         cptRef++;
     }
-
+//methode envoyant les info du produit vers un string
     public String versFichier(){
         return super.versFichier()+ ":" + taille + ":" + couleur + ":" + anneeMiseStock;
     }
+    //setter de reference 
     public void setReference(String ref){
         this.reference = ref;
     }

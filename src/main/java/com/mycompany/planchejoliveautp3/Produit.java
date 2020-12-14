@@ -21,7 +21,7 @@ public abstract class Produit {
     private String designation;
     private double prixVente;
     private int stock;
-
+    //Getters et Setters
     public String getDesignation(){
         return(this.designation);
     }
@@ -46,14 +46,14 @@ public abstract class Produit {
         this.prixVente = prixVente;
         this.stock = stock;
     }
-    
+    //Création méthode abstraite pour les calss fille de produit
     protected abstract void initReference();
-
+    
     public boolean placerApres(Produit produit) {
         String myRef = this.reference;
-        String refToCompare = produit.reference;
-        int temp = myRef.compareTo(refToCompare); // a tester lequel est avant l'autre dans l'ordre alphabétique. 
-        if (temp < 0) {
+        String refToCompare = produit.reference;//On récupère la ref du produit appelé
+        int temp = myRef.compareTo(refToCompare); //On compare la ref avec laquel on appel et la ref en entrée de la méthode
+        if (temp < 0) {//on teste pour voir si il est placer après
             return (false);
         } else {
             return (true);
@@ -64,24 +64,24 @@ public abstract class Produit {
 
     
     public double calculPrix() {
-        LocalDate date1 = LocalDate.now();
+        LocalDate date1 = LocalDate.now();//On crée la date
         DateTimeFormatter form = DateTimeFormatter.ofPattern("yyyy mm dd");
         String date = date1.format(form);
-        String moisStr = date.substring(5, 7);
+        String moisStr = date.substring(5, 7);//On récupère le mois
         int mois = Integer.parseInt(moisStr);
         System.out.print(mois);
 
        
-        boolean isBoisson = (this.getClass() == Boisson.class);
+        boolean isBoisson = (this.getClass() == Boisson.class);//Bolleans qui permetent de tester la calss de l'objet appelant
         boolean isProduitDeriveTextile = (this.getClass() == ProduitDeriveTextile.class);
         boolean isProduitDerive = (this.getClass() == ProduitDerive.class);
         if (isBoisson) {
-            Boisson b = (Boisson) this;
+            Boisson b = (Boisson) this;// On teste si le boolean est vrai
             //Moins d' mois de la date de péremption
             if(b.getDateConso().plusMonths(1).isAfter(LocalDate.now())){
-                return(b.getPrix() * 0.6);
+                return(b.getPrix() * 0.6);//On retourne le prix avec la reduction
             }
-        } else if (isProduitDerive) {
+        } else if (isProduitDerive) {//meme schéma que plus haut
             if (mois == 12) {
                 return(prixVente - (prixVente * 0.1));
             }
@@ -90,7 +90,7 @@ public abstract class Produit {
                 return(prixVente - (prixVente * 0.2));
             }
         }
-        return(prixVente);
+        return(prixVente);// si il n'y a acune rédution a ajouter on retourne le prix de base
         
     }
 
@@ -98,7 +98,7 @@ public abstract class Produit {
         Scanner clavier = new Scanner(System.in);
         System.out.println("Combien de produits voulez vous ajouter au stock");
         int produitsSuppl = clavier.nextInt();
-        stock = stock + produitsSuppl;
+        stock = stock + produitsSuppl;//On ajoute le stock suplémentaire au stock déjà existant
         System.out.println("Vous venez d'ajouter " + produitsSuppl + " produits au stock qui contient mainetenant" + stock + "produits");
 
     }
@@ -107,24 +107,24 @@ public abstract class Produit {
         Scanner clavier = new Scanner(System.in);
         System.out.println("Combien de produits voulez vous retirer du stock");
         int produitsSuppl = clavier.nextInt();
-        stock = stock - produitsSuppl;
+        stock = stock - produitsSuppl;//on retire le stock a retirer
         System.out.println("Vous venez de retirer " + produitsSuppl + " produits du stock qui contient mainetenant" + stock + "produits");
 
     }
     public boolean estAretirer(){
-        boolean isBoisson = (this.getClass() == Boisson.class);
+        boolean isBoisson = (this.getClass() == Boisson.class);//meme principe que plus haut pour les booleans
         boolean isProduitDeriveTextile = (this.getClass() == ProduitDeriveTextile.class);
         boolean isProduitDerive = (this.getClass() == ProduitDerive.class);
-        LocalDate dateNow = LocalDate.now();
+        LocalDate dateNow = LocalDate.now();//On recupère la date
         
-        if(isBoisson){
+        if(isBoisson){//Si c'est une boission on regarde si la date de conso est après la date du jour si c'est le cas on la retire
             Boisson b = (Boisson) this;
             if(b.getDateConso().isAfter(dateNow)){
                 return(true);
             }
         }
         
-        else if (isProduitDeriveTextile){
+        else if (isProduitDeriveTextile){//Meme principe que pour une boission mais on regarde si l'année de mise en stock+4 est inférieure a l'année du jour
             ProduitDeriveTextile t = (ProduitDeriveTextile) this;
             int anneeNow = dateNow.getYear();
             if(t.getAnneeMiseStock()+4 < anneeNow){
@@ -132,7 +132,7 @@ public abstract class Produit {
             }}
         return(false);
         }
-
+//On transforme les infos du produit en string
     public String versFichier(){
         return reference + System.lineSeparator() + designation + ":" + prixVente + ":" + stock;
     }

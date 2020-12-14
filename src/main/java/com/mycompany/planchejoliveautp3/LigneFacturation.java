@@ -19,7 +19,7 @@ public class LigneFacturation {
     private int nombreExemplaireAcheté;
     private double prixUnitaire;
     private double prixTotal = this.nombreExemplaireAcheté * this.prixUnitaire;
-
+    //Constructeur
     public LigneFacturation(String reference, int nombreExemplaireAcheté) {
         
         //this.prixUnitaire = produit.getPrix();
@@ -29,11 +29,11 @@ public class LigneFacturation {
         
         
     }
-
+ 
     public double calculMontant() {
         return (prixTotal);
     }
-
+    //Methode vers fichier qui retourne un String des attribut le la Ligne facturation
     public String versFichier(){
         return nombreExemplaireAcheté+ ":" + reference + ":" + prixUnitaire + ":" + prixTotal;
     }
